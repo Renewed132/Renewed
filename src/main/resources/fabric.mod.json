@@ -1,0 +1,31 @@
+{
+  "schemaVersion": 1,
+  "id": "renewed",
+  "version": "${version}",
+  "name": "Renewed",
+  "description": "This is an example description! Tell everyone what your mod is about!",
+  "authors": [
+    "Olafcio"
+  ],
+  "contact": {
+    "homepage": "https://olafcio.pl/",
+    "sources": "https://github.com/Renewed132/Renewed"
+  },
+  "license": "Apache License",
+  "icon": "assets/renewed/icon.png",
+  "jars": [
+  ],
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "pl.olafcio.renewed.Renewed"
+    ]
+  },
+  "mixins": [
+    "renewed.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=${loader_version}",
+    "minecraft": "${minecraft_version}"
+  }
+}
