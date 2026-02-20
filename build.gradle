@@ -23,9 +23,9 @@ dependencies {
     mappings(legacy.yarn(project.minecraft_version, project.yarn_build))
     modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
 
-    // Legacy-Fabric API
-    modImplementation "net.legacyfabric.legacy-fabric-api:legacy-fabric-api:${project.fabric_version}"
-    implementation('com.google.code.gson:gson:2.8.9')
+    // Dependencies
+    implementation 'com.google.code.gson:gson:2.8.9'
+    include 'com.google.code.gson:gson:2.8.9'
 
     // Tests
     testImplementation platform('org.junit:junit-bom:5.10.0')
