@@ -9,6 +9,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import pl.olafcio.renewed.commands.ClearCommand;
 import pl.olafcio.renewed.commands.SayCommand;
 import pl.olafcio.renewed.commands.TellrawCommand;
+import pl.olafcio.renewed.commands.WeatherCommand;
 
 @Mixin(CommandManager.class)
 public class CommandManagerMixin extends CommandRegistry {
@@ -24,5 +25,6 @@ public class CommandManagerMixin extends CommandRegistry {
         this.registerCommand(new TellrawCommand());
         this.registerCommand(new SayCommand());
         this.registerCommand(new ClearCommand());
+        this.registerCommand(new WeatherCommand());
     }
 }

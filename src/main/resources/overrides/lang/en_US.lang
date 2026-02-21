@@ -12,6 +12,13 @@ commands.clear.no_player=Expected a player name
 commands.clear.success.all=§aCleared %d items from %s.
 commands.clear.success.specific=§aCleared %d %s from %s.
 
+commands.weather.usage=/weather <clear|rain|thunder>
+commands.weather.player_only=This can be used only by players
+commands.weather.expected_weather='%s' is not a valid weather
+commands.weather.success.clear=§aSet the weather to clear.
+commands.weather.success.rain=§aSet the weather to rain.
+commands.weather.success.thunder=§aSet the weather to rain & thunder.
+
 item.monsterPlacer.name=Spawn Egg
 
 item.dyePowder.black.name=Ink Sac

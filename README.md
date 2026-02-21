@@ -26,7 +26,7 @@ Commands:
 - [x] /tellraw
 - [ ] /effect
 - [ ] /execute
-- [ ] /weather
+- [x] /weather
 - [x] /say
 - [x] /clear
 - [ ] /setblock
