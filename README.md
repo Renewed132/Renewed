@@ -97,8 +97,8 @@ Items:
 - [ ] Effect Arrows 🔮
 - [ ] Iron Golem Spawn Egg 🥚
 - [ ] Glowing Ink Sac 🌟
-- [ ] Renames: 🏷️
-  - [ ] Spawn (entityName) -> (entityName) Spawn Egg
+- [x] Renames: 🏷️
+  - [x] Spawn (entityName) -> (entityName) Spawn Egg
 
 Dyes:
 - [ ] Brown Dye 🟤

@@ -4,3 +4,5 @@ commands.tellraw.expected_text=Expected a string in the 'text' key
 commands.tellraw.expected_a_color=Expected a color name or hex code (like #ff0000)
 commands.tellraw.expected_a_message=Expected a message (object, array or string)
 commands.tellraw.expected_an_array.extra=Expected an array in the 'extra' key
+
+item.monsterPlacer.name=Spawn Egg
