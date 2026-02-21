@@ -11,6 +11,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.nio.charset.StandardCharsets;
 import java.util.Properties;
 
 @Mixin(Language.class)
@@ -18,14 +19,14 @@ public class LanguageMixin {
     @Inject(at = @At("TAIL"), method = "method_633")
     private void loadLanguage(Properties properties, String language, CallbackInfo ci) {
         try {
-            InputStream resource = Renewed.class.getResourceAsStream("/assets/renewed/lang/" + language + ".lang");
+            InputStream resource = Renewed.class.getResourceAsStream("/overrides/lang/" + language + ".lang");
             if (resource == null)
                 return;
 
             BufferedReader var3 = new BufferedReader(
                                   new InputStreamReader(
                                         resource,
-                                        "UTF-8"
+                                        StandardCharsets.UTF_8
                                   ));
 
             for (String var4 = var3.readLine(); var4 != null; var4 = var3.readLine()) {

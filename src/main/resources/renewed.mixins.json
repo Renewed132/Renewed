@@ -4,12 +4,14 @@
   "package": "pl.olafcio.renewed.mixin",
   "compatibilityLevel": "JAVA_8",
   "mixins": [
+    "BlockMixin",
     "CommandManagerMixin",
     "CommandMixin",
     "CommandRegistryMixin",
     "LanguageMixin",
     "PlayerManagerMixin",
-    "SpawnEggItemMixin"
+    "SpawnEggItemMixin",
+    "accessors.IBlock"
   ],
   "client": [
     "ClientPlayerEntityMixin",
@@ -19,7 +21,8 @@
     "MinecraftMixin",
     "NormalizeLogging",
     "SkinDownloadThreadMixin",
-    "TextRendererMixin"
+    "TextRendererMixin",
+    "TextureManagerMixin"
   ],
   "injectors": {
     "defaultRequire": 1

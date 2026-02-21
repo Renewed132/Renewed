@@ -66,7 +66,7 @@ Blocks:
   - [ ] Beds
 - [ ] Colorful blocks: 🌈
   - [ ] Terracotta
-  - [ ] Concrete
+  - [x] Concrete
   - [ ] Concrete Powder
 - [ ] Crying Obsidian 🟪
 - [ ] Blast Furnace 🏭
