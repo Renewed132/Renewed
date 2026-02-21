@@ -17,7 +17,7 @@ Features:
 - [ ] Command blocks ⌨️
 - [ ] F3 keybinds: 🪲
   - [ ] Activating hotkeys:
-    - [ ] Prevent debug open
+    - [x] Prevent debug open
     - [ ] Prevent moving
   - [ ] F3+D (clears the chat)
 - [ ] Ctrl+Q (drops the whole held item stack)

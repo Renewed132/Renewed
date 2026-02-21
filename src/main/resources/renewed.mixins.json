@@ -16,6 +16,7 @@
     "GameOptionsMixin",
     "InputMixin",
     "KeyboardInputMixin",
+    "MinecraftMixin",
     "SkinDownloadThreadMixin",
     "TextRendererMixin"
   ],
