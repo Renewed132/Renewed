@@ -10,6 +10,7 @@ import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
+import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 import java.util.Random;
 
@@ -38,6 +39,8 @@ public abstract class TextRendererMixin {
     @Shadow private float y;
 
     @Shadow public int fontHeight;
+
+    @Shadow public abstract int getCharWidth(char character);
 
     @Inject(at = @At("HEAD"), method = "draw", cancellable = true)
     public void draw(String text, boolean shadow, CallbackInfo ci) {
@@ -185,5 +188,41 @@ public abstract class TextRendererMixin {
     @Unique
     private void applyColor() {
         GL11.glColor4f((float)(color >> 16) / 255.0F, (float)(color >> 8 & 255) / 255.0F, (float)(color & 255) / 255.0F, this.alpha);
+    }
+
+    @Inject(at = @At("HEAD"), method = "getStringWidth", cancellable = true)
+    public void getStringWidget(String text, CallbackInfoReturnable<Integer> cir) {
+        if (text == null) {
+            cir.setReturnValue(0);
+        } else {
+            int var2 = 0;
+            boolean var3 = false;
+
+            for (int var4 = 0; var4 < text.length(); var4++) {
+                char var5 = text.charAt(var4);
+                if (var5 == '§') {
+                    var4++;
+                    continue;
+                }
+
+                int var6 = this.getCharWidth(var5);
+                if (var6 < 0 && var4 < text.length() - 1) {
+                    var5 = text.charAt(++var4);
+                    if (var5 == 'l' || var5 == 'L') {
+                        var3 = true;
+                    } else if (var5 == 'r' || var5 == 'R') {
+                        var3 = false;
+                    }
+
+                    var6 = this.getCharWidth(var5);
+                }
+
+                var2 += var6;
+                if (var3)
+                    var2++;
+            }
+
+            cir.setReturnValue(var2);
+        }
     }
 }
