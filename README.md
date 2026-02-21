@@ -127,7 +127,7 @@ Systems:
 - [ ] Named bossbars ⚔️
 
 Logging:
-- [ ] Improved format 🦋
+- [x] Improved format 🦋
 - [ ] Replaced `System.<out|err>.println` calls 📞
 
 ## 🔥 Usage
