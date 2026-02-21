@@ -15,10 +15,10 @@ Features:
     - [ ] Single
     - [ ] Multiple
 - [ ] Command blocks ⌨️
-- [ ] F3 keybinds: 🪲
-  - [ ] Activating hotkeys:
+- [x] F3 keybinds: 🪲
+  - [x] Activating hotkeys:
     - [x] Prevent debug open
-    - [ ] Prevent moving
+    - [x] Prevent moving
   - [x] F3+D (clears the chat)
 - [ ] Ctrl+Q (drops the whole held item stack)
 

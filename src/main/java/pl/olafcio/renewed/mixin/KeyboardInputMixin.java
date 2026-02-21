@@ -2,6 +2,7 @@ package pl.olafcio.renewed.mixin;
 
 import net.minecraft.client.input.KeyboardInput;
 import net.minecraft.client.option.GameOptions;
+import org.lwjgl.input.Keyboard;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.Unique;
@@ -16,8 +17,14 @@ public abstract class KeyboardInputMixin implements IInput {
     @Shadow
     private GameOptions options;
 
+    @Inject(at = @At("HEAD"), method = "tick", cancellable = true)
+    public void tickHEAD(CallbackInfo ci) {
+        if (Keyboard.isKeyDown(61 /* F3 */))
+            ci.cancel();
+    }
+
     @Inject(at = @At("TAIL"), method = "tick")
-    public void tick(CallbackInfo ci) {
+    public void tickTAIL(CallbackInfo ci) {
         if (((IGameOptions) this.options).sprintKey().pressed)
             setSprinting(!inPlace());
         else if (inPlace())
