@@ -7,6 +7,7 @@ import net.minecraft.client.ResourceDownloadThread;
 import net.minecraft.recipe.RecipeDispatcher;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
+import org.spongepowered.asm.mixin.injection.Desc;
 import org.spongepowered.asm.mixin.injection.Redirect;
 import paulscode.sound.SoundSystemLogger;
 
@@ -30,7 +31,7 @@ public class NormalizeLogging {
                     // AchievementsAndCriterions
                     "<clinit>",
                     // SoundSystemLogger
-                    "message", "importantMessage", "errorMessage",
+                    "message", "importantMessage",
                     // ResourceDownloadThread
                     "method_800"
             },
@@ -38,5 +39,21 @@ public class NormalizeLogging {
     )
     private static void println(PrintStream instance, String text) {
         Logger.getAnonymousLogger().info(text);
+    }
+
+    @SuppressWarnings("all")
+    @Redirect(
+            at = @At(
+                    value = "INVOKE",
+                    target = "Ljava/io/PrintStream;println(Ljava/lang/String;)V"
+            ),
+            target = {
+                    // SoundSystemLogger
+                    @Desc(owner = SoundSystemLogger.class, value = "errorMessage", args = { String.class, String.class, int.class })
+            },
+            require = 0
+    )
+    private static void printlnError(PrintStream instance, String text) {
+        Logger.getAnonymousLogger().warning(text);
     }
 }
