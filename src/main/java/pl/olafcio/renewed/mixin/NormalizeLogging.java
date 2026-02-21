@@ -7,6 +7,7 @@ import net.minecraft.client.MinecraftApplet;
 import net.minecraft.client.ResourceDownloadThread;
 import net.minecraft.entity.TrackedEntityInstance;
 import net.minecraft.recipe.RecipeDispatcher;
+import net.minecraft.structure.StrongholdStructure;
 import net.minecraft.util.profiler.Profiler;
 import net.minecraft.world.level.storage.AnvilLevelStorage;
 import net.minecraft.world.level.storage.LevelStorage;
@@ -19,7 +20,7 @@ import paulscode.sound.SoundSystemLogger;
 import java.io.PrintStream;
 import java.util.logging.Logger;
 
-@Mixin({ MinecraftApplet.class, Minecraft.class, AchievementsAndCriterions.class, RecipeDispatcher.class, SoundSystemLogger.class, ResourceDownloadThread.class, TrackedEntityInstance.class, Profiler.class, LevelStorage.class, BlockEntity.class, AnvilLevelStorage.class })
+@Mixin({ MinecraftApplet.class, Minecraft.class, AchievementsAndCriterions.class, RecipeDispatcher.class, SoundSystemLogger.class, ResourceDownloadThread.class, TrackedEntityInstance.class, Profiler.class, LevelStorage.class, BlockEntity.class, AnvilLevelStorage.class, StrongholdStructure.class })
 public class NormalizeLogging {
     @Redirect(
             at = @At(
@@ -48,7 +49,9 @@ public class NormalizeLogging {
                     // BlockEntity
                     "createFromNbt",
                     // AnvilLevelStorage
-                    "convert", "makeMcrLevelDatBackup", "convertRegion"
+                    "convert", "makeMcrLevelDatBackup", "convertRegion",
+                    // StrongholdStructure
+                    "shouldStartAt"
             },
             require = 0
     )
