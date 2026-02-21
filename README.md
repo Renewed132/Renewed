@@ -126,6 +126,10 @@ Systems:
   - [ ] Resetting (/title reset)
 - [ ] Named bossbars ⚔️
 
+Logging:
+- [ ] Improved format 🦋
+- [ ] Replaced `System.<out|err>.println` calls 📞
+
 ## 🔥 Usage
 1. Install ATLauncher
 2. Log in to your Microsoft account (for playing Minecraft)
