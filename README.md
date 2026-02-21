@@ -26,7 +26,7 @@ Commands:
 - [ ] /effect
 - [ ] /execute
 - [ ] /weather
-- [ ] /say
+- [x] /say
 - [ ] /clear
 - [ ] /setblock
 - [ ] /fill
