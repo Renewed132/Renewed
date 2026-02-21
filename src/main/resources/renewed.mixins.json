@@ -4,6 +4,8 @@
   "package": "pl.olafcio.renewed.mixin",
   "compatibilityLevel": "JAVA_8",
   "mixins": [
+    "CommandManagerMixin",
+    "LanguageMixin"
   ],
   "client": [
     "ClientPlayerEntityMixin",
