@@ -12,11 +12,18 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 import pl.olafcio.renewed.mixininterface.ICommandRegistry;
 
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+
 @Mixin(CommandRegistry.class)
 public class CommandRegistryMixin implements ICommandRegistry {
     @Unique
     @Nullable
     private CommandSource currentSource;
+
+    @Unique
+    private final ExecutorService executor
+            = Executors.newSingleThreadExecutor();
 
     @Override
     @SuppressWarnings("all")
@@ -26,9 +33,11 @@ public class CommandRegistryMixin implements ICommandRegistry {
 
     @WrapMethod(method = "executeCommand")
     public void executeCommand(CommandSource source, String input, Operation<Void> original) {
-        currentSource = source;
-        original.call(source, input);
-        currentSource = null;
+        executor.submit(() -> {
+            currentSource = source;
+            original.call(source, input);
+            currentSource = null;
+        });
     }
 
     @Inject(at = @At("HEAD"), method = "method_3104", cancellable = true)
