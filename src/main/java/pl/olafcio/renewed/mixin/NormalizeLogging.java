@@ -1,10 +1,15 @@
 package pl.olafcio.renewed.mixin;
 
 import net.minecraft.advancement.AchievementsAndCriterions;
+import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.MinecraftApplet;
 import net.minecraft.client.ResourceDownloadThread;
+import net.minecraft.entity.TrackedEntityInstance;
 import net.minecraft.recipe.RecipeDispatcher;
+import net.minecraft.util.profiler.Profiler;
+import net.minecraft.world.level.storage.AnvilLevelStorage;
+import net.minecraft.world.level.storage.LevelStorage;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Desc;
@@ -14,7 +19,7 @@ import paulscode.sound.SoundSystemLogger;
 import java.io.PrintStream;
 import java.util.logging.Logger;
 
-@Mixin({ MinecraftApplet.class, Minecraft.class, AchievementsAndCriterions.class, RecipeDispatcher.class, SoundSystemLogger.class, ResourceDownloadThread.class })
+@Mixin({ MinecraftApplet.class, Minecraft.class, AchievementsAndCriterions.class, RecipeDispatcher.class, SoundSystemLogger.class, ResourceDownloadThread.class, TrackedEntityInstance.class, Profiler.class, LevelStorage.class, BlockEntity.class, AnvilLevelStorage.class })
 public class NormalizeLogging {
     @Redirect(
             at = @At(
@@ -33,7 +38,17 @@ public class NormalizeLogging {
                     // SoundSystemLogger
                     "message", "importantMessage",
                     // ResourceDownloadThread
-                    "method_800"
+                    "method_800",
+                    // TrackedEntityInstance
+                    "method_2182",
+                    // Profiler
+                    "pop",
+                    // LevelStorage
+                    "method_200",
+                    // BlockEntity
+                    "createFromNbt",
+                    // AnvilLevelStorage
+                    "convert", "makeMcrLevelDatBackup", "convertRegion"
             },
             require = 0
     )
