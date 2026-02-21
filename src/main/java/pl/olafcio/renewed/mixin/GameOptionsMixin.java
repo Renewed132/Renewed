@@ -21,6 +21,7 @@ import pl.olafcio.renewed.options.FieldMap;
 import java.io.*;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.logging.Logger;
 
 @Mixin(GameOptions.class)
 public abstract class GameOptionsMixin implements IGameOptions {
@@ -150,14 +151,14 @@ public abstract class GameOptionsMixin implements IGameOptions {
                         if (var3[0].equals("keyboard :: " + var7.translationKey))
                             var7.code = Integer.parseInt(var3[1]);
                 } catch (Exception var8) {
-                    System.out.println("Skipping bad option: " + raw);
+                    Logger.getLogger("GameOptions").warning("Skipping bad option: " + raw);
                 }
             }
 
             KeyBinding.updateKeysByCode();
             reader.close();
         } catch (Exception var9) {
-            System.out.println("Failed to load options");
+            Logger.getLogger("GameOptions").severe("Failed to load options");
             var9.printStackTrace();
         }
     }
@@ -188,7 +189,7 @@ public abstract class GameOptionsMixin implements IGameOptions {
 
             var1.close();
         } catch (Exception var6) {
-            System.out.println("Failed to save options");
+            Logger.getLogger("GameOptions").severe("Failed to save options");
             var6.printStackTrace();
         }
 

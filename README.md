@@ -128,7 +128,7 @@ Systems:
 
 Logging:
 - [x] Improved format 🦋
-- [ ] Replaced `System.<out|err>.println` calls 📞
+- [x] Replaced `System.<out|err>.println` calls 📞
 
 ## 🔥 Usage
 1. Install ATLauncher

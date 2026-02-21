@@ -17,6 +17,7 @@
     "InputMixin",
     "KeyboardInputMixin",
     "MinecraftMixin",
+    "NormalizeLogging",
     "SkinDownloadThreadMixin",
     "TextRendererMixin"
   ],
