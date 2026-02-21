@@ -103,6 +103,8 @@ Items:
 
 Dyes:
 - [ ] Brown Dye 🟤
+- [ ] Black Dye ⚫
+- [ ] White Dye ⚪
 - [ ] Renames: 🏷️
   - [ ] Rose Red -> Red Dye
   - [ ] Dandelion Yellow -> Yellow Dye
