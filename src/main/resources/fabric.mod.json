@@ -3,7 +3,7 @@
   "id": "renewed",
   "version": "${version}",
   "name": "Renewed",
-  "description": "This is an example description! Tell everyone what your mod is about!",
+  "description": "Alternative Minecraft update channel.",
   "authors": [
     "Olafcio"
   ],
