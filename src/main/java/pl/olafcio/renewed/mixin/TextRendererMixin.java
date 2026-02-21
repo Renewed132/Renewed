@@ -48,6 +48,12 @@ public abstract class TextRendererMixin {
             if (ch == 167 && index + 1 < text.length()) {
                 int code = "0123456789abcdefklmnorx".indexOf(text.toLowerCase().charAt(index + 1));
                 if (code == 22) {
+                    this.obfuscated = false;
+                    this.bold = false;
+                    this.strikethrough = false;
+                    this.underline = false;
+                    this.italic = false;
+
                     index++;
                     if (index + 12 < text.length()) {
                         hex:
