@@ -6,6 +6,7 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
+import pl.olafcio.renewed.commands.ClearCommand;
 import pl.olafcio.renewed.commands.SayCommand;
 import pl.olafcio.renewed.commands.TellrawCommand;
 
@@ -22,5 +23,6 @@ public class CommandManagerMixin extends CommandRegistry {
     public void init(CallbackInfo ci) {
         this.registerCommand(new TellrawCommand());
         this.registerCommand(new SayCommand());
+        this.registerCommand(new ClearCommand());
     }
 }

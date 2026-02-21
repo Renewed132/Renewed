@@ -27,7 +27,7 @@ Commands:
 - [ ] /execute
 - [ ] /weather
 - [x] /say
-- [ ] /clear
+- [x] /clear
 - [ ] /setblock
 - [ ] /fill
 - [ ] /gamerule

@@ -7,4 +7,9 @@ commands.tellraw.expected_an_array.extra=Expected an array in the 'extra' key
 
 commands.say.usage=/say <text>
 
+commands.clear.usage=/clear <player> [item type]
+commands.clear.no_player=Expected a player name
+commands.clear.success.all=§aCleared %d items from %s.
+commands.clear.success.specific=§aCleared %d %s from %s.
+
 item.monsterPlacer.name=Spawn Egg
