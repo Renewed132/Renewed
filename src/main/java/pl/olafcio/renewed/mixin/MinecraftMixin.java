@@ -33,6 +33,15 @@ public class MinecraftMixin {
         return res;
     }
 
+    @Inject(at = @At(value = "INVOKE", target = "Lorg/lwjgl/input/Keyboard;getEventKey()I", ordinal = 7), method = "tick")
+    public void tick__getEventKey__isD(CallbackInfo ci) {
+        // This is injected at the F3+T check
+        if (Keyboard.getEventKey() == Keyboard.KEY_D && Keyboard.isKeyDown(Keyboard.KEY_F3 /* 61 */)) {
+            this.inGameHud.getChatHud().clear();
+            this.usedHotkey = true;
+        }
+    }
+
     @Unique
     private boolean usedHotkey = false;
 

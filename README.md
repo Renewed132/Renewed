@@ -19,7 +19,7 @@ Features:
   - [ ] Activating hotkeys:
     - [x] Prevent debug open
     - [ ] Prevent moving
-  - [ ] F3+D (clears the chat)
+  - [x] F3+D (clears the chat)
 - [ ] Ctrl+Q (drops the whole held item stack)
 
 Commands:
