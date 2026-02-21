@@ -105,9 +105,9 @@ Dyes:
 - [ ] Brown Dye 🟤
 - [ ] Black Dye ⚫
 - [ ] White Dye ⚪
-- [ ] Renames: 🏷️
-  - [ ] Rose Red -> Red Dye
-  - [ ] Dandelion Yellow -> Yellow Dye
+- [x] Renames: 🏷️
+  - [x] Rose Red -> Red Dye
+  - [x] Dandelion Yellow -> Yellow Dye
 
 Trees:
 - [ ] Dark Oak 🌲
