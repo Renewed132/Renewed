@@ -9,7 +9,7 @@ Features:
 - [x] Hex colors 🧊
 - [ ] Selectors: 🎚️
   - [ ] Player selectors:
-    - [ ] Single
+    - [x] Single
     - [ ] Multiple
   - [ ] Entity selectors:
     - [ ] Single

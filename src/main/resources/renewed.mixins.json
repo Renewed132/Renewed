@@ -5,7 +5,9 @@
   "compatibilityLevel": "JAVA_8",
   "mixins": [
     "CommandManagerMixin",
-    "LanguageMixin"
+    "CommandRegistryMixin",
+    "LanguageMixin",
+    "PlayerManagerMixin"
   ],
   "client": [
     "ClientPlayerEntityMixin",
