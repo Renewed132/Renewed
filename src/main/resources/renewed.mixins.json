@@ -16,6 +16,7 @@
     "accessors.IBlock"
   ],
   "client": [
+    "BlockRendererMixin",
     "ClientPlayerEntityMixin",
     "FolderTexturePackMixin",
     "GameOptionsMixin",

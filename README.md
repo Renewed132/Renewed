@@ -65,7 +65,7 @@ Blocks:
   - [ ] Buttons
   - [ ] Beds
 - [ ] Colorful blocks: 🌈
-  - [ ] Terracotta
+  - [x] Terracotta
   - [x] Concrete
   - [ ] Concrete Powder
 - [ ] Crying Obsidian 🟪
