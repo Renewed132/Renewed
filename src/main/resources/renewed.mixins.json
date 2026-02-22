@@ -23,7 +23,7 @@
     "KeyboardInputMixin",
     "MinecraftMixin",
     "NormalizeLogging",
-    "SkinDownloadThreadMixin",
+    "ResourceDownloadThreadMixin",
     "TextRendererMixin",
     "TextureManagerMixin",
     "ZipTexturePackMixin"

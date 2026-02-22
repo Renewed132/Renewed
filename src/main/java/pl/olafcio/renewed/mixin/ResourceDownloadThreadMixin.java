@@ -9,6 +9,7 @@ import org.spongepowered.include.com.google.gson.JsonElement;
 import org.spongepowered.include.com.google.gson.JsonObject;
 import org.spongepowered.include.com.google.gson.internal.Streams;
 import org.spongepowered.include.com.google.gson.stream.JsonReader;
+import pl.olafcio.renewed.ShouldBeNamed;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -19,10 +20,9 @@ import java.util.Map;
 import java.util.Set;
 
 @Mixin(targets = "net.minecraft.client.class_526")
-public class SkinDownloadThreadMixin {
-    @Mutable
-    @Shadow
-    @Final
+public class ResourceDownloadThreadMixin {
+    @Mutable @Shadow @Final
+    @ShouldBeNamed("url")
     String field_1873;
 
     @Inject(at = @At("HEAD"), method = "run", cancellable = true)
@@ -46,11 +46,21 @@ public class SkinDownloadThreadMixin {
                 JsonObject object = Streams.parse(new JsonReader(new InputStreamReader(inputStream)))
                                            .getAsJsonObject();
 
-                JsonObject textures = getProperty(object, "textures").getAsJsonObject();
-                JsonObject skin = getProperty(textures, "skin").getAsJsonObject();
+                if (field_1873.contains("/MinecraftSkins/")) {
+                    // Skin
+                    JsonObject textures = getProperty(object, "textures").getAsJsonObject();
+                    JsonObject skin = getProperty(textures, "skin").getAsJsonObject();
 
-                field_1873 = getProperty(skin, "url").getAsJsonPrimitive()
-                                                           .getAsString();
+                    field_1873 = getProperty(skin, "url").getAsJsonPrimitive()
+                                                               .getAsString();
+                } else if (field_1873.contains("/MinecraftCloaks/")) {
+                    // Cape
+                    JsonObject textures = getProperty(object, "textures").getAsJsonObject();
+                    JsonObject skin = getProperty(textures, "cape").getAsJsonObject();
+
+                    field_1873 = getProperty(skin, "url").getAsJsonPrimitive()
+                                                               .getAsString();
+                }
             } else {
                 new Error("Server-failed profile query").printStackTrace();
                 ci.cancel();
