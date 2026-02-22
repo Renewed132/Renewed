@@ -17,6 +17,7 @@
   ],
   "client": [
     "ClientPlayerEntityMixin",
+    "FolderTexturePackMixin",
     "GameOptionsMixin",
     "InputMixin",
     "KeyboardInputMixin",
@@ -24,7 +25,8 @@
     "NormalizeLogging",
     "SkinDownloadThreadMixin",
     "TextRendererMixin",
-    "TextureManagerMixin"
+    "TextureManagerMixin",
+    "ZipTexturePackMixin"
   ],
   "injectors": {
     "defaultRequire": 1
