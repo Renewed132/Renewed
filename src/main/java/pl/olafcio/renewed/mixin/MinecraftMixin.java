@@ -50,6 +50,7 @@ public class MinecraftMixin {
                     .replace("{red}", ANSI_RED)
                     .replace("{yellow}", ANSI_YELLOW)
                     .replace("{green}", ANSI_GREEN)
+                    .replace("{cyan}", ANSI_CYAN)
                     .replace("{reset}", ANSI_RESET)
                     .replace("{white}", ANSI_LIGHT_GRAY);
     }
@@ -69,10 +70,13 @@ public class MinecraftMixin {
                     Date date = new Date(ms);
 
                     return String.format(
-                           color("{gray}[{red}%s{gray}] [{yellow}%s{gray}] [{green}%s{gray}]{reset} {white}%s%n"),
+                           color("{gray}[{red}%s{gray}] [{yellow}%s{gray}] [{green}%s{gray}]%s{reset} {white}%s%n"),
                             f_date.format(date),
                             f_time.format(date),
                             record.getLevel(),
+                            record.getLoggerName() == null
+                                    ? ""
+                                    : String.format(color(" [{cyan}%s{gray}]"), record.getLoggerName()),
                             record.getMessage()
                     );
                 }
