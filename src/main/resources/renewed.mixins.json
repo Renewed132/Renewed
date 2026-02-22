@@ -11,6 +11,7 @@
     "GiveCommandMixin",
     "LanguageMixin",
     "PlayerManagerMixin",
+    "ServerPlayerEntityMixin",
     "SpawnEggItemMixin",
     "accessors.IBlock"
   ],
