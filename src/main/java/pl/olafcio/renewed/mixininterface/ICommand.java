@@ -1,12 +1,13 @@
 package pl.olafcio.renewed.mixininterface;
 
+import net.minecraft.command.InvalidNumberException;
 import net.minecraft.command.SyntaxException;
 import net.minecraft.item.Item;
 
 public interface ICommand {
     default Item getItem(String name) {
         if (name.startsWith("+"))
-            throw new SyntaxException("Invalid item ID");
+            throw new InvalidNumberException("Invalid item ID");
 
         try {
             int id = Integer.parseUnsignedInt(name);
@@ -19,7 +20,7 @@ public interface ICommand {
         } catch (NumberFormatException ignored) {
             // Try the name method then
         } catch (ArrayIndexOutOfBoundsException e) {
-            throw new SyntaxException("Item ID out of bounds");
+            throw new InvalidNumberException("Item ID out of bounds");
         }
 
         for (int i = 1; i < Item.ITEMS.length; i++) {
