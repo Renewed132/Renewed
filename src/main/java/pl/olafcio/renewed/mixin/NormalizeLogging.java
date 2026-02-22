@@ -56,7 +56,10 @@ public class NormalizeLogging {
             require = 0
     )
     private static void println(PrintStream instance, String text) {
-        Logger.getAnonymousLogger().info(text);
+        String className = new Error().getStackTrace()[2].getClassName();
+               className = className.substring(className.lastIndexOf(".") + 1);
+
+        Logger.getLogger(className).info(text);
     }
 
     @SuppressWarnings("all")
@@ -72,6 +75,9 @@ public class NormalizeLogging {
             require = 0
     )
     private static void printlnError(PrintStream instance, String text) {
-        Logger.getAnonymousLogger().warning(text);
+        String className = new Error().getStackTrace()[2].getClassName();
+               className = className.substring(className.lastIndexOf(".") + 1);
+
+        Logger.getLogger(className).warning(text);
     }
 }
