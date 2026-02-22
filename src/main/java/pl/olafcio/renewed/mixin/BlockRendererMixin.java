@@ -9,11 +9,10 @@ import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.*;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
+import static pl.olafcio.renewed.Terrain.TERRAIN_SPRITESHEET_HEIGHT;
+
 @Mixin(BlockRenderer.class)
 public abstract class BlockRendererMixin {
-    @Unique
-    private static final double TERRAIN_SPRITESHEET_HEIGHT = 288.0;
-
     @Shadow private int field_2049;
     @Shadow private boolean field_2050;
     @Shadow private int field_2052;

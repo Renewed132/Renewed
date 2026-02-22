@@ -21,6 +21,7 @@
     "FolderTexturePackMixin",
     "GameOptionsMixin",
     "InputMixin",
+    "ItemRendererMixin",
     "KeyboardInputMixin",
     "MinecraftMixin",
     "NormalizeLogging",
