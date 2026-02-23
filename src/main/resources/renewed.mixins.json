@@ -26,6 +26,8 @@
     "KeyboardInputMixin",
     "MinecraftMixin",
     "NormalizeLogging",
+    "ParticleManagerMixin",
+    "ParticleMixin",
     "ResourceDownloadThreadMixin",
     "TextRendererMixin",
     "TextureManagerMixin",
