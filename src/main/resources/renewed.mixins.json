@@ -20,6 +20,7 @@
     "ClientPlayerEntityMixin",
     "FolderTexturePackMixin",
     "GameOptionsMixin",
+    "HeldItemRendererMixin",
     "InputMixin",
     "ItemRendererMixin",
     "KeyboardInputMixin",
