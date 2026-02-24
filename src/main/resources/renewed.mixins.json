@@ -10,7 +10,9 @@
     "CommandRegistryMixin",
     "GiveCommandMixin",
     "LanguageMixin",
+    "MaterialMixin",
     "PlayerManagerMixin",
+    "SandBlockMixin",
     "ServerPlayerEntityMixin",
     "SpawnEggItemMixin",
     "accessors.IBlock"
