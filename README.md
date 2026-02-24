@@ -64,10 +64,10 @@ Blocks:
   - [ ] Trapdoors
   - [ ] Buttons
   - [ ] Beds
-- [ ] Colorful blocks: 🌈
+- [x] Colorful blocks: 🌈
   - [x] Terracotta
   - [x] Concrete
-  - [ ] Concrete Powder
+  - [x] Concrete Powder
 - [ ] Crying Obsidian 🟪
 - [ ] Blast Furnace 🏭
 - [ ] Stone variants: 🪨

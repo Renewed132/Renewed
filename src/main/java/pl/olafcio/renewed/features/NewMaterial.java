@@ -5,6 +5,7 @@ import net.minecraft.block.material.MaterialColor;
 
 public class NewMaterial extends Material {
     public static final NewMaterial CONCRETE = new NewMaterial(MaterialColor.WEB);
+    public static final NewMaterial CONCRETE_POWDER = new NewMaterial(MaterialColor.WEB);
     public static final NewMaterial TERRACOTTA = new NewMaterial(MaterialColor.WEB);
 
     public NewMaterial(MaterialColor materialColor) {
