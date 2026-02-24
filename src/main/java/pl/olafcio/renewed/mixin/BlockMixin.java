@@ -21,7 +21,7 @@ public class BlockMixin {
     @Shadow public static boolean[] field_498;
 
     @Inject(at = @At("TAIL"), method = "<clinit>")
-    private static void inited(CallbackInfo ci) {
+    private static void addCustomRegistries(CallbackInfo ci) {
         NewBlock.init();
 
         for (int var0 = 137; var0 < 256; var0++) {
