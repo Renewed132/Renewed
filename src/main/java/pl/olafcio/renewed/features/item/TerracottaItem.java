@@ -18,7 +18,7 @@ public class TerracottaItem extends BlockItem {
     @Environment(EnvType.CLIENT)
     @Override
     public int method_3343(int i) {
-        return NewBlock.TERRACOTTA.method_396(2, TerracottaBlock.method_291(i));
+        return NewBlock.TERRACOTTA.method_396(2, TerracottaBlock.itemToBlockMETA(i));
     }
 
     @Override
@@ -28,6 +28,6 @@ public class TerracottaItem extends BlockItem {
 
     @Override
     public String getTranslationKey(ItemStack stack) {
-        return super.getTranslationKey() + "." + DyeItem.field_4196[TerracottaBlock.method_291(stack.getData())];
+        return super.getTranslationKey() + "." + DyeItem.field_4196[TerracottaBlock.itemToBlockMETA(stack.getData())];
     }
 }

@@ -30,10 +30,10 @@ public class ConcreteBlock extends Block {
         return i;
     }
 
-    @ShouldBeNamed("ItemToBlockMETA") public static int method_291(int i) {
+    public static int itemToBlockMETA(int i) {
         return ~i & 15;
     }
-    @ShouldBeNamed("BlockToItemMETA") public static int method_290(int i) {
+    public static int blockToItemMETA(int i) {
         return ~i & 15;
     }
 

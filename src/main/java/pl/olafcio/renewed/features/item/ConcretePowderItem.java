@@ -6,7 +6,6 @@ import net.minecraft.item.BlockItem;
 import net.minecraft.item.DyeItem;
 import net.minecraft.item.ItemStack;
 import pl.olafcio.renewed.features.NewBlock;
-import pl.olafcio.renewed.features.block.ConcreteBlock;
 import pl.olafcio.renewed.features.block.ConcretePowderBlock;
 
 public class ConcretePowderItem extends BlockItem {
@@ -19,7 +18,7 @@ public class ConcretePowderItem extends BlockItem {
     @Environment(EnvType.CLIENT)
     @Override
     public int method_3343(int i) {
-        return NewBlock.CONCRETE_POWDER.method_396(2, ConcretePowderBlock.method_291(i));
+        return NewBlock.CONCRETE_POWDER.method_396(2, ConcretePowderBlock.itemToBlockMETA(i));
     }
 
     @Override
@@ -29,6 +28,6 @@ public class ConcretePowderItem extends BlockItem {
 
     @Override
     public String getTranslationKey(ItemStack stack) {
-        return super.getTranslationKey() + "." + DyeItem.field_4196[ConcretePowderBlock.method_291(stack.getData())];
+        return super.getTranslationKey() + "." + DyeItem.field_4196[ConcretePowderBlock.itemToBlockMETA(stack.getData())];
     }
 }

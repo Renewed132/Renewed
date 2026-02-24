@@ -18,7 +18,7 @@ public class ConcreteItem extends BlockItem {
     @Environment(EnvType.CLIENT)
     @Override
     public int method_3343(int i) {
-        return NewBlock.CONCRETE.method_396(2, ConcreteBlock.method_291(i));
+        return NewBlock.CONCRETE.method_396(2, ConcreteBlock.itemToBlockMETA(i));
     }
 
     @Override
@@ -28,6 +28,6 @@ public class ConcreteItem extends BlockItem {
 
     @Override
     public String getTranslationKey(ItemStack stack) {
-        return super.getTranslationKey() + "." + DyeItem.field_4196[ConcreteBlock.method_291(stack.getData())];
+        return super.getTranslationKey() + "." + DyeItem.field_4196[ConcreteBlock.itemToBlockMETA(stack.getData())];
     }
 }
