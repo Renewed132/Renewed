@@ -1,4 +1,4 @@
-package pl.olafcio.renewed.features.item;
+package pl.olafcio.renewed.features.colorful.item;
 
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
@@ -6,7 +6,7 @@ import net.minecraft.item.BlockItem;
 import net.minecraft.item.DyeItem;
 import net.minecraft.item.ItemStack;
 import pl.olafcio.renewed.features.NewBlock;
-import pl.olafcio.renewed.features.block.TerracottaBlock;
+import pl.olafcio.renewed.features.colorful.block.TerracottaBlock;
 
 public class TerracottaItem extends BlockItem {
     public TerracottaItem(int i) {

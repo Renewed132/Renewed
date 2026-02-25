@@ -1,4 +1,4 @@
-package pl.olafcio.renewed.features.block;
+package pl.olafcio.renewed.features.colorful.block;
 
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;

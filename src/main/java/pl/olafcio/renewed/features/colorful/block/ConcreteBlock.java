@@ -1,18 +1,18 @@
-package pl.olafcio.renewed.features.block;
+package pl.olafcio.renewed.features.colorful.block;
 
+import net.minecraft.block.Block;
+
+import java.util.List;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
-import net.minecraft.block.Block;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.itemgroup.ItemGroup;
 import pl.olafcio.renewed.ShouldBeNamed;
 import pl.olafcio.renewed.features.NewMaterial;
 
-import java.util.List;
-
-public class TerracottaBlock extends Block {
-    public TerracottaBlock() {
-        super(138, NewMaterial.TERRACOTTA);
+public class ConcreteBlock extends Block {
+    public ConcreteBlock() {
+        super(137, NewMaterial.CONCRETE);
         this.setItemGroup(ItemGroup.BUILDING_BLOCKS);
         this.setStrength(0.8F);
         this.setBlockSoundGroup(METAL_SOUND_GROUP);
@@ -22,7 +22,7 @@ public class TerracottaBlock extends Block {
     @ShouldBeNamed("getSprite")
     public int method_396(int i, int j) {
         // sprite arithmetic 😭🙏
-        return 256 + j;
+        return 184 + (j/4)*16 + j%4;
     }
 
     @Override
