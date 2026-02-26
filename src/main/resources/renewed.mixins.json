@@ -17,6 +17,7 @@
     "SandBlockMixin",
     "ServerPlayerEntityMixin",
     "SpawnEggItemMixin",
+    "TeleportCommandMixin",
     "accessors.IBlock"
   ],
   "client": [
