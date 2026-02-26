@@ -48,7 +48,7 @@ Subcommands:
 
 Command aliases:
 - [ ] /teleport -> /tp
-- [ ] /experience -> /xp
+- [x] /experience -> /xp
 - [x] /whisper -> /tell
 
 Materials:

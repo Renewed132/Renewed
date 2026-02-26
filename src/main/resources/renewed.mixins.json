@@ -8,6 +8,7 @@
     "CommandManagerMixin",
     "CommandMixin",
     "CommandRegistryMixin",
+    "ExperienceCommandMixin",
     "GiveCommandMixin",
     "LanguageMixin",
     "MaterialMixin",
