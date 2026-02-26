@@ -19,6 +19,10 @@ commands.weather.success.clear=§aSet the weather to clear.
 commands.weather.success.rain=§aSet the weather to rain.
 commands.weather.success.thunder=§aSet the weather to rain & thunder.
 
+commands.detach.usage=/detach <player>
+commands.detach.success=Detached %1's connection.
+commands.detach.self_lan=Cannot detach an integrated connection!
+
 item.monsterPlacer.name=Spawn Egg
 
 item.dyePowder.black.name=Ink Sac
