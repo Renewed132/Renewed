@@ -11,6 +11,7 @@
     "GiveCommandMixin",
     "LanguageMixin",
     "MaterialMixin",
+    "MessageCommandMixin",
     "PlayerManagerMixin",
     "SandBlockMixin",
     "ServerPlayerEntityMixin",

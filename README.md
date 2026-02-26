@@ -49,6 +49,7 @@ Subcommands:
 Command aliases:
 - [ ] /teleport -> /tp
 - [ ] /experience -> /xp
+- [x] /whisper -> /tell
 
 Materials:
 - [ ] Copper 🏺
