@@ -1,4 +1,4 @@
-package pl.olafcio.renewed.mixin;
+package pl.olafcio.renewed.mixin.commands.aliases;
 
 import net.minecraft.server.command.MessageCommand;
 import org.spongepowered.asm.mixin.Mixin;

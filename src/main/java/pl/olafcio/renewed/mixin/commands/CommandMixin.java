@@ -1,4 +1,4 @@
-package pl.olafcio.renewed.mixin;
+package pl.olafcio.renewed.mixin.commands;
 
 import net.minecraft.command.Command;
 import org.spongepowered.asm.mixin.Mixin;

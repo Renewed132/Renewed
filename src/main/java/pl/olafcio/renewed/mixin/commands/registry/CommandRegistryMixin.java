@@ -1,4 +1,4 @@
-package pl.olafcio.renewed.mixin;
+package pl.olafcio.renewed.mixin.commands.registry;
 
 import com.llamalad7.mixinextras.injector.wrapmethod.WrapMethod;
 import com.llamalad7.mixinextras.injector.wrapoperation.Operation;

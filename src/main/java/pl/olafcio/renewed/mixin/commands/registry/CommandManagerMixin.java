@@ -1,4 +1,4 @@
-package pl.olafcio.renewed.mixin;
+package pl.olafcio.renewed.mixin.commands.registry;
 
 import net.minecraft.server.command.CommandManager;
 import net.minecraft.server.command.CommandRegistry;

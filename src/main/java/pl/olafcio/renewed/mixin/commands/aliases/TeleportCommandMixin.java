@@ -1,4 +1,4 @@
-package pl.olafcio.renewed.mixin;
+package pl.olafcio.renewed.mixin.commands.aliases;
 
 import net.minecraft.command.AbstractCommand;
 import net.minecraft.server.command.TeleportCommand;
