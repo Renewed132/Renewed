@@ -8,10 +8,14 @@ import net.minecraft.entity.player.ServerPlayerEntity;
 import net.minecraft.network.IntegratedConnection;
 import net.minecraft.server.MinecraftServer;
 import org.jetbrains.annotations.NotNull;
+import pl.olafcio.renewed.mixininterface.ICommand;
 
 import java.util.List;
 
-public class DetachCommand extends AbstractCommand {
+public class DetachCommand
+       extends AbstractCommand
+       implements ICommand
+{
     @Override
     public String getCommandName() {
         return "detach";
@@ -25,7 +29,7 @@ public class DetachCommand extends AbstractCommand {
     @Override
     public void execute(CommandSource source, String[] args) {
         if (args.length > 0 && args[0].length() > 1) {
-            ServerPlayerEntity player = MinecraftServer.getServer().getPlayerManager().getPlayer(args[0]);
+            ServerPlayerEntity player = getPlayer(args[0]);
             if (player == null) {
                 throw new PlayerNotFoundException();
             } else if (player.field_2823.connection instanceof IntegratedConnection) {

@@ -4,7 +4,6 @@ import net.minecraft.command.*;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.entity.player.ServerPlayerEntity;
 import net.minecraft.item.ItemStack;
-import net.minecraft.server.MinecraftServer;
 import org.jetbrains.annotations.NotNull;
 import pl.olafcio.renewed.mixininterface.ICommand;
 
@@ -29,8 +28,7 @@ public class EnchantCommand
 
         ServerPlayerEntity player;
         if (args.length == 3) {
-            MinecraftServer server = MinecraftServer.getServer();
-            player = server.getPlayerManager().getPlayer(args[2]);
+            player = getPlayer(args[2]);
 
             if (player == null)
                 throw new PlayerNotFoundException("commands.enchant.no_player");

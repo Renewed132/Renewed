@@ -4,7 +4,6 @@ import net.minecraft.command.*;
 import net.minecraft.entity.player.ServerPlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.server.MinecraftServer;
 import org.jetbrains.annotations.NotNull;
 import pl.olafcio.renewed.mixininterface.ICommand;
 
@@ -27,8 +26,7 @@ public class ClearCommand
         if (args.length == 0 || args.length > 2)
             throw new IncorrectUsageException("commands.clear.usage");
 
-        MinecraftServer server = MinecraftServer.getServer();
-        ServerPlayerEntity player = server.getPlayerManager().getPlayer(args[0]);
+        ServerPlayerEntity player = getPlayer(args[0]);
 
         if (player == null)
             throw new PlayerNotFoundException("commands.clear.no_player");

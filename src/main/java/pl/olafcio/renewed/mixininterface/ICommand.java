@@ -5,20 +5,29 @@ import net.minecraft.block.Block;
 import net.minecraft.command.InvalidNumberException;
 import net.minecraft.command.SyntaxException;
 import net.minecraft.enchantment.Enchantment;
+import net.minecraft.entity.player.ServerPlayerEntity;
 import net.minecraft.item.Item;
+import net.minecraft.server.MinecraftServer;
 import org.jetbrains.annotations.ApiStatus;
 import org.jetbrains.annotations.NotNull;
 
 public interface ICommand {
-    // ========================== //
-    // INPUT TO JAVA TYPE PARSING //
-    // ========================== //
+    // ================== //
+    // INPUT TO ESSENTIAL //
+    // ================== //
 
     default int parseUnsignedInt(String value) {
         if (value.startsWith("+"))
             throw new InvalidNumberException("Expected an unsigned int");
 
         return Integer.parseUnsignedInt(value);
+    }
+
+    default ServerPlayerEntity getPlayer(String value) {
+        MinecraftServer server = MinecraftServer.getServer();
+        ServerPlayerEntity player = server.getPlayerManager().getPlayer(value);
+
+        return player;
     }
 
     // =================================== //
