@@ -20,7 +20,11 @@ public interface ICommand {
         if (value.startsWith("+"))
             throw new InvalidNumberException("Expected an unsigned int");
 
-        return Integer.parseUnsignedInt(value);
+        try {
+            return Integer.parseUnsignedInt(value);
+        } catch (NumberFormatException e) {
+            throw new InvalidNumberException("Invalid unsigned integer");
+        }
     }
 
     default ServerPlayerEntity getPlayer(String value) {
