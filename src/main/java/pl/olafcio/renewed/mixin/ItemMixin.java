@@ -11,4 +11,9 @@ public abstract class ItemMixin
 {
     @Shadow
     public abstract String getTranslationKey();
+
+    @Override
+    public String __getTranslationKey() {
+        return getTranslationKey();
+    }
 }

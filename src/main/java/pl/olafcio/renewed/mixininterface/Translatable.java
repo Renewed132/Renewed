@@ -1,9 +1,9 @@
 package pl.olafcio.renewed.mixininterface;
 
 public interface Translatable {
-    String getTranslationKey();
+    String __getTranslationKey();
 
     default String getUseKey() {
-        return getTranslationKey();
+        return __getTranslationKey();
     }
 }
