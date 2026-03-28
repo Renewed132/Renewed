@@ -21,6 +21,7 @@ Features:
     - [x] Prevent moving
   - [x] F3+D (clears the chat)
 - [ ] Ctrl+Q (drops the whole held item stack)
+- [x] Modern air logic 🍃
 
 Commands:
 - [x] /tellraw
