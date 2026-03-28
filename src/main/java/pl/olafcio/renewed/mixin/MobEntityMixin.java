@@ -30,6 +30,7 @@ public abstract class MobEntityMixin
     public void destroy(CallbackInfo ci) {
         if (damageTicks++ == 0) {
             damageTicks = getVoidDamageDelay();
+        } else {
             ci.cancel();
         }
     }
