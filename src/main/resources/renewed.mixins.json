@@ -6,6 +6,7 @@
   "mixins": [
     "BlockMixin",
     "EnchantmentMixin",
+    "EntityMixin",
     "ItemMixin",
     "LanguageMixin",
     "MaterialMixin",
