@@ -37,5 +37,6 @@ public class MagmaBlock extends Block {
     public void onEntityCollision(World world, int x, int y, int z, Entity entity) {
         entity.velocityX *= 0.3;
         entity.velocityZ *= 0.3;
+        entity.setOnFireFor(1);
     }
 }
