@@ -82,6 +82,7 @@ Blocks:
 - [ ] Trapped Chest 🌰
 - [ ] Non-carved Pumpkin 🥧
 - [ ] Target 🎯
+- [x] Magma 🌋
 
 Entities:
 - [ ] Variant boats 🚤

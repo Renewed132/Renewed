@@ -8,6 +8,8 @@ import pl.olafcio.renewed.features.colorful.block.TerracottaBlock;
 import pl.olafcio.renewed.features.colorful.item.ConcreteItem;
 import pl.olafcio.renewed.features.colorful.item.ConcretePowderItem;
 import pl.olafcio.renewed.features.colorful.item.TerracottaItem;
+import pl.olafcio.renewed.features.frostburn.block.MagmaBlock;
+import pl.olafcio.renewed.features.frostburn.item.MagmaItem;
 import pl.olafcio.renewed.mixin.accessors.IBlock;
 
 public class NewBlock {
@@ -20,6 +22,9 @@ public class NewBlock {
     public static Block TERRACOTTA
            = new TerracottaBlock().setTranslationKey("terracotta");
 
+    public static Block MAGMA
+            = new MagmaBlock().setTranslationKey("magma");
+
     public static void init__Colorful() {
         ((IBlock) CONCRETE).addToRegistry();
         ((IBlock) CONCRETE_POWDER).addToRegistry();
@@ -30,7 +35,14 @@ public class NewBlock {
         Item.ITEMS[TERRACOTTA.id]      = new TerracottaItem(TERRACOTTA.id - 256).setName("terracotta");
     }
 
+    public static void init__Frostburn() {
+        ((IBlock) MAGMA).addToRegistry();
+
+        Item.ITEMS[MAGMA.id] = new MagmaItem(MAGMA.id - 256).setName("magma");
+    }
+
     public static void init() {
         init__Colorful();
+        init__Frostburn();
     }
 }
