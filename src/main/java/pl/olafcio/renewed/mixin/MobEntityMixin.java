@@ -44,7 +44,7 @@ public abstract class MobEntityMixin
     @Override
     @SuppressWarnings("all")
     public int getVoidDamageDelay() {
-        return -80;
+        return -1;
     }
 
     // AIR REGENERATION //
