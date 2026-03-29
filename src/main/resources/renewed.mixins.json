@@ -40,6 +40,7 @@
   "client": [
     "BlockRendererMixin",
     "ClientPlayerEntityMixin",
+    "ClientPlayerInteractionManagerMixin",
     "FolderTexturePackMixin",
     "GameOptionsMixin",
     "HeldItemRendererMixin",
