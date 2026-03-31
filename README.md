@@ -135,6 +135,11 @@ Logging:
 - [x] Improved format 🦋
 - [x] Replaced `System.<out|err>.println` calls 📞
 
+## 🐦‍⬛ Ornithe support?
+It's not supported currently, but I might add support for it soon.<br/>
+It's not that easy to support it along with Legacy Fabric, as some mappings are different.<br/>
+Although if I'd use Stonecutter/Funcutter to build with Legacy Fabric and then with Ornithe, it would probably  be possible (Ornithe probably allows me to configure the development mappings).
+
 ## 🔥 Usage
 1. Install ATLauncher
 2. Log in to your Microsoft account (for playing Minecraft)
