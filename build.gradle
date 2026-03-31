@@ -5,7 +5,7 @@ plugins {
 }
 
 group = 'pl.olafcio.renewed'
-version = '0.6-beta'
+version = '0.7-beta'
 
 base {
     archivesName = project.archives_base_name
