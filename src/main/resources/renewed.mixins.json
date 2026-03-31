@@ -13,6 +13,7 @@
     "MobEntityMixin",
     "PlayerManagerMixin",
     "SandBlockMixin",
+    "ServerPacketListenerMixin",
     "ServerPlayerEntityMixin",
     "SpawnEggItemMixin",
     "accessors.IBlock",
