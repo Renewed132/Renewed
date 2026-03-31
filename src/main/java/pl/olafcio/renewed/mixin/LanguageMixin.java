@@ -25,7 +25,7 @@ import java.util.Properties;
 public class LanguageMixin {
     @Inject(at = @At("TAIL"), method = "method_633")
     private void loadLanguage(Properties properties, String language, CallbackInfo ci) {
-        String path = "/overrides/lang/" + language + ".lang";
+        String path = "overrides/lang/" + language + ".lang";
         Collection<ModContainer> mods = FabricLoader.getInstance().getAllMods();
 
         for (ModContainer container : mods) {
