@@ -102,6 +102,7 @@ Items:
 - [ ] Spectral Arrows 🎯
 - [ ] Effect Arrows 🔮
 - [ ] Iron Golem Spawn Egg 🥚
+- [x] Snow Man Spawn Egg 🥚
 - [ ] Glowing Ink Sac 🌟
 - [x] Renames: 🏷️
   - [x] Spawn (entityName) -> (entityName) Spawn Egg
