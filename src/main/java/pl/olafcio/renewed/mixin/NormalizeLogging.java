@@ -5,8 +5,12 @@ import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.MinecraftApplet;
 import net.minecraft.client.ResourceDownloadThread;
+import net.minecraft.client.gui.screen.ConnectScreen;
+import net.minecraft.client.network.IntegratedServerLAN;
 import net.minecraft.entity.TrackedEntityInstance;
 import net.minecraft.recipe.RecipeDispatcher;
+import net.minecraft.server.ListenThread;
+import net.minecraft.server.integrated.IntegratedServer;
 import net.minecraft.structure.StrongholdStructure;
 import net.minecraft.util.profiler.Profiler;
 import net.minecraft.world.level.storage.AnvilLevelStorage;
@@ -20,7 +24,7 @@ import paulscode.sound.SoundSystemLogger;
 import java.io.PrintStream;
 import java.util.logging.Logger;
 
-@Mixin({ MinecraftApplet.class, Minecraft.class, AchievementsAndCriterions.class, RecipeDispatcher.class, SoundSystemLogger.class, ResourceDownloadThread.class, TrackedEntityInstance.class, Profiler.class, LevelStorage.class, BlockEntity.class, AnvilLevelStorage.class, StrongholdStructure.class })
+@Mixin({ MinecraftApplet.class, Minecraft.class, AchievementsAndCriterions.class, RecipeDispatcher.class, SoundSystemLogger.class, ResourceDownloadThread.class, TrackedEntityInstance.class, Profiler.class, LevelStorage.class, BlockEntity.class, AnvilLevelStorage.class, StrongholdStructure.class, ConnectScreen.class, IntegratedServer.class, IntegratedServerLAN.class, ListenThread.class })
 public class NormalizeLogging {
     @Redirect(
             at = @At(
@@ -51,7 +55,15 @@ public class NormalizeLogging {
                     // AnvilLevelStorage
                     "convert", "makeMcrLevelDatBackup", "convertRegion",
                     // StrongholdStructure
-                    "shouldStartAt"
+                    "shouldStartAt",
+                    // ConnectScreen
+                    "method_1209",
+                    // IntegratedServer
+                    "openToLAN",
+                    // IntegratedServerLAN
+                    "stop",
+                    // ListenThread
+                    "run"
             },
             require = 0
     )
