@@ -1,5 +1,6 @@
 package pl.olafcio.renewed.mixin;
 
+import net.minecraft.client.Minecraft;
 import net.minecraft.client.input.KeyboardInput;
 import net.minecraft.client.option.GameOptions;
 import org.lwjgl.input.Keyboard;
@@ -25,7 +26,7 @@ public abstract class KeyboardInputMixin implements IInput {
 
     @Inject(at = @At("TAIL"), method = "tick")
     public void tickTAIL(CallbackInfo ci) {
-        if (((IGameOptions) this.options).sprintKey().pressed)
+        if (((IGameOptions) this.options).sprintKey().pressed && Minecraft.getMinecraft().playerEntity.getHungerManager().getFoodLevel() > 3*2)
             setSprinting(!inPlace());
         else if (inPlace())
             setSprinting(false);
