@@ -44,7 +44,7 @@ Commands:
 - [ ] /spawnpoint
 - [ ] /setworldspawn
 - [ ] /random
-- [ ] /swing (26.1 Snapshot)
+- [x] /swing (26.1 Snapshot)
 
 Subcommands:
 - [ ] /time query

@@ -30,6 +30,9 @@ commands.enchant.success.other=Enchanted %s's %s with %s.
 commands.enchant.success.self=Enchanted your %s with %s.
 commands.enchant.cannot_enchant_air=Cannot enchant air
 
+commands.swing.usage=/swing <player>
+commands.swing.success=Swung %s's hand.
+
 item.monsterPlacer.name=Spawn Egg
 
 item.dyePowder.black.name=Ink Sac
