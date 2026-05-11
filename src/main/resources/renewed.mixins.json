@@ -54,6 +54,7 @@
     "ParticleManagerMixin",
     "ParticleMixin",
     "ResourceDownloadThreadMixin",
+    "ServerListMixin",
     "TextRendererMixin",
     "TextureManagerMixin",
     "ZipTexturePackMixin"
