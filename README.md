@@ -20,7 +20,7 @@ Features:
     - [x] Prevent debug open
     - [x] Prevent moving
   - [x] F3+D (clears the chat)
-- [ ] Ctrl+Q (drops the whole held item stack)
+- [x] Ctrl+Q (drops the whole held item stack)
 - [x] Modern air logic 🍃
 - [x] Modern void damage 👁️‍🗨️
 
