@@ -42,6 +42,6 @@ public abstract class KeyboardInputMixin implements IInput {
 
     @Unique
     private boolean inPlace() {
-        return movementForward() < 1 && movementSideways() < 1;
+        return movementForward() < 1 || Math.abs(movementSideways()) > 1;
     }
 }
