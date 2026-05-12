@@ -21,6 +21,7 @@ public class ClientPlayerInteractionManagerMixin {
     public void breakBlock__isCreative(int x, int y, int z, int side, CallbackInfoReturnable<Boolean> cir) {
         if (
                 this.gameMode.isCreative() &&
+                this.field_1646.playerEntity.inventory.getMainHandStack() != null &&
                 this.field_1646.playerEntity.inventory.getMainHandStack().getItem() instanceof SwordItem
         ) {
              cir.setReturnValue(false);
@@ -31,6 +32,7 @@ public class ClientPlayerInteractionManagerMixin {
     public void startBreakingBlock__isCreative(int x, int y, int z, int side, CallbackInfo ci) {
         if (
                 this.gameMode.isCreative() &&
+                this.field_1646.playerEntity.inventory.getMainHandStack() != null &&
                 this.field_1646.playerEntity.inventory.getMainHandStack().getItem() instanceof SwordItem
         ) {
             ci.cancel();
