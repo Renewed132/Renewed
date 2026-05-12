@@ -134,7 +134,7 @@ public class InGameHudMixin {
         textY = 2;
         for (String line : right) {
             if (!line.isEmpty())
-                draw(line, (int) new Window(mc.options, mc.width, mc.height).getScaledWidth() - mc.textRenderer.getStringWidth(line) - 2, textY);
+                draw(line, (int) (((IMinecraft) mc).window().getScaledWidth() - mc.textRenderer.getStringWidth(line) - 2), textY);
 
             textY += 10;
         }

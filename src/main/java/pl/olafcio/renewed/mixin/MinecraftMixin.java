@@ -19,6 +19,8 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.Redirect;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
+import pl.olafcio.renewed.mixininterface.IMinecraft;
+import pl.olafcio.renewed.mixininterface.IWindow;
 
 import java.awt.*;
 import java.text.SimpleDateFormat;
@@ -29,11 +31,16 @@ import java.util.logging.Logger;
 import java.util.logging.SimpleFormatter;
 
 @Mixin(Minecraft.class)
-public class MinecraftMixin {
+public class MinecraftMixin implements IMinecraft {
     @Shadow public InGameHud inGameHud;
     @Shadow public GameOptions options;
     @Shadow public ClientWorld world;
     @Shadow public ControllablePlayerEntity playerEntity;
+
+    @Shadow public int height;
+    @Shadow public int width;
+
+    @Shadow public Screen currentScreen;
 
     @Unique private static final String ANSI_RESET = "\033[0m";  // Text Reset
     @Unique private static final String ANSI_BLACK = "\033[30m";   // BLACK
@@ -147,5 +154,37 @@ public class MinecraftMixin {
     @Redirect(at = @At(value = "FIELD", target = "Lnet/minecraft/client/Minecraft;fpsDebugString:Ljava/lang/String;", opcode = Opcodes.PUTFIELD), method = "runGameLoop")
     public void setFPSDebugString(Minecraft instance, String value) {
         instance.fpsDebugString = value.substring(0, value.indexOf(",")) + (options.vsync ? " vsync" : "");
+    }
+
+    //=====================//
+    //=== WINDOW OBJECT ===//
+    //=====================//
+
+    @Inject(at = @At(value = "FIELD", target = "Lnet/minecraft/client/Minecraft;options:Lnet/minecraft/client/option/GameOptions;", opcode = Opcodes.PUTFIELD, shift = At.Shift.AFTER), method = "initializeGame")
+    public void inited(CallbackInfo ci) {
+        this.window = new Window(this.options, this.width, this.height);
+    }
+
+    @Unique
+    private Window window;
+
+    @Override
+    public Window window() {
+        return window;
+    }
+
+    @Inject(at = @At("HEAD"), method = "runGameLoop")
+    public void tick(CallbackInfo ci) {
+        IWindow window = (IWindow) this.window;
+        if (width != window.unscaledWidth() || height != window.unscaledHeight()) {
+            window.update(this.options, this.width, this.height);
+
+            if (currentScreen != null) {
+                currentScreen.width = this.window.getWidth();
+                currentScreen.height = this.window.getHeight();
+
+                currentScreen.method_1028((Minecraft) (Object) this, currentScreen.width, currentScreen.height);
+            }
+        }
     }
 }

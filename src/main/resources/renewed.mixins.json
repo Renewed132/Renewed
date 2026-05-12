@@ -59,6 +59,8 @@
     "ServerListMixin",
     "TextRendererMixin",
     "TextureManagerMixin",
+    "WindowMixin",
+    "WindowReference",
     "ZipTexturePackMixin",
     "accessors.ITextRenderer"
   ],
