@@ -63,6 +63,7 @@
     "WindowMixin",
     "WindowReference",
     "ZipTexturePackMixin",
+    "accessors.IClientPlayerInteractionManager",
     "accessors.ITextRenderer"
   ],
   "injectors": {
