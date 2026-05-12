@@ -1,5 +1,6 @@
 package pl.olafcio.renewed.mixin;
 
+import net.minecraft.client.render.CullingCameraView;
 import net.minecraft.client.render.GameRenderer;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.hit.BlockHitResult;
@@ -18,5 +19,14 @@ public class GameRendererMixin {
     @Redirect(at = @At(value = "NEW", target = "(Lnet/minecraft/entity/Entity;)Lnet/minecraft/util/hit/BlockHitResult;"), method = "updateTargetedEntity")
     public BlockHitResult updateTargetedEntity__newBlockHitResult(Entity entity) {
         return entityHR.update(entity);
+    }
+
+    @Unique
+    private final CullingCameraView cullingCameraView
+            = new CullingCameraView();
+
+    @Redirect(at = @At(value = "NEW", target = "()Lnet/minecraft/client/render/CullingCameraView;"), method = "renderWorld")
+    public CullingCameraView renderWorld__newCullingCameraView() {
+        return cullingCameraView;
     }
 }
