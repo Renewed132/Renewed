@@ -1,6 +1,8 @@
 package pl.olafcio.renewed.mixin;
 
+import net.minecraft.client.TextureManager;
 import net.minecraft.client.font.TextRenderer;
+import net.minecraft.client.option.GameOptions;
 import net.minecraft.client.render.Tessellator;
 import net.minecraft.util.SharedConstants;
 import org.lwjgl.opengl.GL11;
@@ -224,5 +226,10 @@ public abstract class TextRendererMixin {
 
             cir.setReturnValue(var2);
         }
+    }
+
+    @Inject(at = @At("TAIL"), method = "<init>(Lnet/minecraft/client/option/GameOptions;Ljava/lang/String;Lnet/minecraft/client/TextureManager;Z)V")
+    public void init(GameOptions options, String string, TextureManager textureManager, boolean bl, CallbackInfo ci) {
+        this.fontHeight = 8;
     }
 }
