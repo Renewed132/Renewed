@@ -59,7 +59,8 @@
     "ServerListMixin",
     "TextRendererMixin",
     "TextureManagerMixin",
-    "ZipTexturePackMixin"
+    "ZipTexturePackMixin",
+    "accessors.ITextRenderer"
   ],
   "injectors": {
     "defaultRequire": 0

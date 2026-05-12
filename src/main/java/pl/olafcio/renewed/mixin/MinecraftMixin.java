@@ -7,9 +7,11 @@ import net.minecraft.client.MinecraftApplet;
 import net.minecraft.client.gui.hud.InGameHud;
 import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.client.option.GameOptions;
+import net.minecraft.client.util.Window;
 import net.minecraft.client.world.ClientWorld;
 import net.minecraft.entity.player.ControllablePlayerEntity;
 import org.lwjgl.input.Keyboard;
+import org.objectweb.asm.Opcodes;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.Unique;
@@ -134,11 +136,16 @@ public class MinecraftMixin {
     private boolean condEnableF3(boolean shift) {
         if (!usedHotkey && world != null && playerEntity != null) {
             this.options.debugEnabled = !this.options.debugEnabled;
-            this.options.debugProfilerEnabled = shift;
+            this.options.debugProfilerEnabled = !shift;
 
             return true;
         } else {
             return false;
         }
+    }
+
+    @Redirect(at = @At(value = "FIELD", target = "Lnet/minecraft/client/Minecraft;fpsDebugString:Ljava/lang/String;", opcode = Opcodes.PUTFIELD), method = "runGameLoop")
+    public void setFPSDebugString(Minecraft instance, String value) {
+        instance.fpsDebugString = value.substring(0, value.indexOf(",")) + (options.vsync ? " vsync" : "");
     }
 }
