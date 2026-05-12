@@ -46,6 +46,7 @@
     "ControllablePlayerEntityMixin",
     "FolderTexturePackMixin",
     "GameOptionsMixin",
+    "GameRendererMixin",
     "HeldItemRendererMixin",
     "InGameHudMixin",
     "InputMixin",
