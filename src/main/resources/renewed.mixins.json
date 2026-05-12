@@ -64,6 +64,7 @@
     "WindowReference",
     "ZipTexturePackMixin",
     "accessors.IClientPlayerInteractionManager",
+    "accessors.IMinecraft",
     "accessors.ITextRenderer"
   ],
   "injectors": {
