@@ -55,6 +55,9 @@ public class MinecraftMixin implements IMinecraft {
 
     @Unique
     private String color(String input) {
+        if (System.console() == null && System.getProperty("jboss.modules.system.pkgs") == null) // IDEA check here
+            return input.replaceAll("\\{[a-z]+}", "");
+
         return input.replace("{gray}", ANSI_DARK_GRAY)
                     .replace("{red}", ANSI_RED)
                     .replace("{yellow}", ANSI_YELLOW)
