@@ -1,5 +1,7 @@
 package pl.olafcio.renewed.mixinclass;
 
+import net.fabricmc.api.EnvType;
+import net.fabricmc.api.Environment;
 import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.font.TextRenderer;
@@ -10,6 +12,7 @@ import net.minecraft.world.chunk.Chunk;
 import pl.olafcio.renewed.mixin.accessors.ITextRenderer;
 import pl.olafcio.renewed.mixininterface.IMinecraft;
 
+@Environment(EnvType.CLIENT)
 public final class DebugHud {
     public Minecraft mc;
     public DebugHud(Minecraft mc) {
