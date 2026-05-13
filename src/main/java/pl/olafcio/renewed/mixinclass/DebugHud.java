@@ -80,6 +80,10 @@ public final class DebugHud {
     }
 
     private String[] getLeft(Chunk chunk, int x, int y, int z) {
+        float yaw = this.mc.playerEntity.yaw % 360;
+        if (yaw < 0)
+            yaw = 360 + yaw;
+
         return new String[]{
                 "Minecraft {} ({}/vanilla)".replace("{}", FabricLoader.getInstance().getRawGameVersion()),
                 this.mc.fpsDebugString,
@@ -93,7 +97,13 @@ public final class DebugHud {
                 String.format("XYZ: %.3f / %.5f / %.3f", this.mc.cameraEntity.x, this.mc.cameraEntity.boundingBox.minY, this.mc.cameraEntity.z),
                 String.format("Block: %.0f %.0f %.0f", this.mc.cameraEntity.x, this.mc.cameraEntity.y, this.mc.cameraEntity.z),
                 String.format("Chunk: %d %d %d [%.0f %.0f in r.%d.%d.mca]", chunk.chunkX, (int) this.mc.cameraEntity.y >> 4, chunk.chunkZ, this.mc.cameraEntity.x - chunk.chunkX * 16, this.mc.cameraEntity.z - chunk.chunkZ * 16, chunk.chunkX, chunk.chunkZ),
-//                "Facing: ",
+                String.format("Facing: %s (Towards %s) (%.1f / %.1f)", yaw >= 270 ? "west" :
+                                                                       yaw >= 180 ? "north" :
+                                                                       yaw >= 90  ? "east" :
+                                                                                    "south", yaw >= 270 ? "positive X" :
+                                                                                             yaw >= 180 ? "negative Z" :
+                                                                                             yaw >= 90  ? "negative X" :
+                                                                                                          "positive Z", yaw, this.mc.playerEntity.pitch),
                 String.format("Client Light: %d (%d sky, %d block)", this.mc.world.getLightmapCoordinates(x, y, z, 0), this.mc.world.method_3642(LightType.SKY, x, y, z), this.mc.world.method_3642(LightType.BLOCK, x, y, z)),
 //                "CH S: 0 M: 0",
 //                "SH S: 0 O: 0 M: 0 ML: 0",
