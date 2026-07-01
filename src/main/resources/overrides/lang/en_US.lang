@@ -33,6 +33,10 @@ commands.enchant.cannot_enchant_air=Cannot enchant air
 commands.swing.usage=/swing <player>
 commands.swing.success=Swung %s's hand.
 
+commands.setblock.usage=/setblock <position> <block type>
+commands.setblock.entity_only=This can be only used by players
+commands.setblock.success=§aSet the block at %d %d %d to %s.
+
 item.monsterPlacer.name=Spawn Egg
 
 item.dyePowder.black.name=Ink Sac

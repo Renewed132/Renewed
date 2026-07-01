@@ -31,7 +31,7 @@ Commands:
 - [x] /weather
 - [x] /say
 - [x] /clear
-- [ ] /setblock
+- [x] /setblock
 - [ ] /fill
 - [ ] /gamerule
 - [ ] /item
