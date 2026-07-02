@@ -10,4 +10,9 @@ public abstract class MaterialMixin
        implements IMaterial
 {
     @Shadow public abstract boolean isFluid();
+
+    @Override
+    public boolean __isFluid() {
+        return isFluid();
+    }
 }
