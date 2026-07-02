@@ -40,6 +40,7 @@
     "enchantment.UnbreakingEnchantmentMixin"
   ],
   "client": [
+    "AchievementsScreenMixin",
     "BlockRendererMixin",
     "ClientPlayerEntityMixin",
     "ClientPlayerInteractionManagerMixin",
