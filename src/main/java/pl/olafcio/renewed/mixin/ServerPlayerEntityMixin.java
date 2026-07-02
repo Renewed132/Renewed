@@ -1,8 +1,10 @@
 package pl.olafcio.renewed.mixin;
 
+import net.minecraft.entity.ItemEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.entity.player.ServerPlayerEntity;
+import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 import org.spongepowered.asm.mixin.Mixin;
 import pl.olafcio.renewed.mixininterface.IServerPlayerEntity;
@@ -20,5 +22,10 @@ public abstract class ServerPlayerEntityMixin
     @SuppressWarnings("all")
     public PlayerInventory getInventory() {
         return inventory;
+    }
+
+    @Override
+    public ItemEntity __dropStack(ItemStack stack) {
+        return super.dropStack(stack);
     }
 }

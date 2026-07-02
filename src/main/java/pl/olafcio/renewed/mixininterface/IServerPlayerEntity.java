@@ -7,7 +7,7 @@ import net.minecraft.item.ItemStack;
 
 public interface IServerPlayerEntity {
     PlayerInventory getInventory();
-    ItemEntity dropStack(ItemStack stack);
+    ItemEntity __dropStack(ItemStack stack);
 
     default void giveItem(ItemStack stack) {
         Item item = stack.getItem();
@@ -35,6 +35,6 @@ public interface IServerPlayerEntity {
             return;
         }
 
-        dropStack(stack);
+        __dropStack(stack);
     }
 }
