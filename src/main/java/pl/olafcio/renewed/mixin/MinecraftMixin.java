@@ -156,7 +156,7 @@ public class MinecraftMixin implements IMinecraft {
 
     @Redirect(at = @At(value = "FIELD", target = "Lnet/minecraft/client/Minecraft;fpsDebugString:Ljava/lang/String;", opcode = Opcodes.PUTFIELD), method = "runGameLoop")
     public void setFPSDebugString(Minecraft instance, String value) {
-        instance.fpsDebugString = value.substring(0, value.indexOf(",")) + (options.vsync ? " vsync" : "");
+        instance.fpsDebugString = value.substring(0, value.indexOf(",")) + (options.vsync ? " vsync" : "") + (options.fancyGraphics ? " fancy" : "");
     }
 
     //=====================//
