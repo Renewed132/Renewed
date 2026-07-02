@@ -8,6 +8,7 @@
     "EnchantmentMixin",
     "EntityMixin",
     "EntityTypeMixin",
+    "HostileEntityMixin",
     "ItemMixin",
     "LanguageMixin",
     "MaterialMixin",
