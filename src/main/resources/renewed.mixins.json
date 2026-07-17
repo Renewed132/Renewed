@@ -4,6 +4,7 @@
   "package": "pl.olafcio.renewed.mixin",
   "compatibilityLevel": "JAVA_8",
   "mixins": [
+    "BedItemMixin",
     "BlockMixin",
     "EnchantmentMixin",
     "EntityMixin",
