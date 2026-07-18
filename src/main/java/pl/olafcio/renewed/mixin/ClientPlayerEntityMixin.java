@@ -70,4 +70,20 @@ public abstract class ClientPlayerEntityMixin extends PlayerEntity {
 
         return original.call(instance, x, y, z);
     }
+
+    @WrapOperation(
+            at = @At(
+                    value = "FIELD",
+                    target = "Lnet/minecraft/entity/player/ClientPlayerEntity;onGround:Z",
+                    opcode = Opcodes.GETFIELD,
+                    ordinal = 1
+            ),
+            method = "method_2651"
+    )
+    private boolean m2561__disableFlyOnGround(ClientPlayerEntity instance, Operation<Boolean> original) {
+        if (((IClientPlayerInteractionManager) this.field_1759.interactionManager).isSpectatorMode())
+            return false;
+
+        return original.call(instance);
+    }
 }
