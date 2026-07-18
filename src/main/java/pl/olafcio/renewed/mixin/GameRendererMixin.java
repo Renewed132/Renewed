@@ -1,5 +1,8 @@
 package pl.olafcio.renewed.mixin;
 
+import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
+import com.llamalad7.mixinextras.injector.wrapoperation.WrapOperation;
+import net.minecraft.client.network.ClientPlayerInteractionManager;
 import net.minecraft.client.render.CullingCameraView;
 import net.minecraft.client.render.GameRenderer;
 import net.minecraft.entity.Entity;
@@ -9,6 +12,7 @@ import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Redirect;
 import pl.olafcio.renewed.mixinclass.PersistentEntityHitResult;
+import pl.olafcio.renewed.mixininterface.IClientPlayerInteractionManager;
 
 @Mixin(GameRenderer.class)
 public class GameRendererMixin {
@@ -28,5 +32,16 @@ public class GameRendererMixin {
     @Redirect(at = @At(value = "NEW", target = "()Lnet/minecraft/client/render/CullingCameraView;"), method = "renderWorld")
     public CullingCameraView renderWorld__newCullingCameraView() {
         return cullingCameraView;
+    }
+
+    @WrapOperation(
+            at = @At(
+                    value = "INVOKE",
+                    target = "Lnet/minecraft/client/network/ClientPlayerInteractionManager;isSpectator()Z"
+            ),
+            method = "renderHand"
+    )
+    private boolean renderHand__isSpectatorMode(ClientPlayerInteractionManager instance, Operation<Boolean> original) {
+        return original.call(instance) || ((IClientPlayerInteractionManager) instance).isSpectatorMode();
     }
 }

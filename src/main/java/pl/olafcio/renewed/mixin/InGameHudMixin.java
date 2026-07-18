@@ -1,9 +1,12 @@
 package pl.olafcio.renewed.mixin;
 
+import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
+import com.llamalad7.mixinextras.injector.wrapoperation.WrapOperation;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.font.TextRenderer;
 import net.minecraft.client.gui.hud.InGameHud;
+import net.minecraft.client.network.ClientPlayerInteractionManager;
 import net.minecraft.entity.player.ControllablePlayerEntity;
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
@@ -15,6 +18,7 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.Redirect;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import pl.olafcio.renewed.mixinclass.DebugHud;
+import pl.olafcio.renewed.mixininterface.IClientPlayerInteractionManager;
 
 @Mixin(InGameHud.class)
 public class InGameHudMixin {
@@ -68,5 +72,10 @@ public class InGameHudMixin {
     )
     public void render__f3(float partialTicks, boolean inScreen, int mouseX, int mouseY, CallbackInfo ci) {
         debugHud.render(partialTicks, inScreen, mouseX, mouseY);
+    }
+
+    @WrapOperation(at = @At(value = "INVOKE", target = "Lnet/minecraft/client/network/ClientPlayerInteractionManager;isSpectator()Z"), method = "render")
+    public boolean render__shouldSkip(ClientPlayerInteractionManager instance, Operation<Boolean> original) {
+        return original.call(instance) || ((IClientPlayerInteractionManager) instance).isSpectatorMode();
     }
 }

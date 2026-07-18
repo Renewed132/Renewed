@@ -9,6 +9,7 @@
     "EnchantmentMixin",
     "EntityMixin",
     "EntityTypeMixin",
+    "GameModeCommandMixin",
     "HostileEntityMixin",
     "ItemMixin",
     "LanguageMixin",
@@ -44,6 +45,7 @@
   "client": [
     "AchievementsScreenMixin",
     "BlockRendererMixin",
+    "ClientPlayNetworkHandlerMixin",
     "ClientPlayerEntityMixin",
     "ClientPlayerInteractionManagerMixin",
     "ControllablePlayerEntityMixin",

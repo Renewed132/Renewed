@@ -1,5 +1,7 @@
 package pl.olafcio.renewed.mixin;
 
+import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
+import com.llamalad7.mixinextras.injector.wrapoperation.WrapOperation;
 import net.minecraft.entity.player.ServerPlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.network.packet.c2s.play.PlayerActionC2SPacket;
@@ -37,5 +39,10 @@ public class ServerPacketListenerMixin {
 
             player.dropStack(player.inventory.takeInvStack(slot, stack.count), false);
         }
+    }
+
+    @WrapOperation(at = @At(value = "INVOKE", target = "Lnet/minecraft/entity/player/ServerPlayerEntity;method_2641()Z"), method = "onPlayerMove")
+    public boolean onPlayerMove__noClip(ServerPlayerEntity instance, Operation<Boolean> original) {
+        return original.call(instance) || instance.noClip;
     }
 }

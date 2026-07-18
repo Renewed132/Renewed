@@ -24,7 +24,7 @@ Features:
 - [x] Modern air logic 🍃
 - [x] Modern void damage 👁️‍🗨️
 - [ ] Spectator: 👀
-  - [ ] Abilities
+  - [x] Abilities
   - [ ] Invisibility
   - [ ] Right-click portal entering
 
