@@ -26,7 +26,7 @@ Features:
 - [ ] Spectator: 👀
   - [x] Abilities
   - [ ] Invisibility
-  - [ ] Right-click portal entering
+  - [x] Right-click portal entering
 
 Commands:
 - [x] /tellraw

@@ -9,6 +9,9 @@ public interface IServerPlayerEntity {
     PlayerInventory getInventory();
     ItemEntity dropStack(ItemStack stack);
 
+    boolean isSpectatorMode();
+    void setSpectatorMode(boolean value);
+
     default void giveItem(ItemStack stack) {
         Item item = stack.getItem();
         PlayerInventory inventory = getInventory();

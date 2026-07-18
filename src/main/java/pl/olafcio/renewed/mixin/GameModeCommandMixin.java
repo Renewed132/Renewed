@@ -12,6 +12,7 @@ import net.minecraft.world.GameMode;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
+import pl.olafcio.renewed.mixininterface.IServerPlayerEntity;
 
 @Mixin(GameModeCommand.class)
 public class GameModeCommandMixin {
@@ -41,6 +42,8 @@ public class GameModeCommandMixin {
                     3 /* SPECTATOR */
             ));
 
+            ((IServerPlayerEntity) instance).setSpectatorMode(true);
+
             player.interactionManager.setGameMode(gameMode);
 
             player.abilities.invulnerable = true;
@@ -50,7 +53,10 @@ public class GameModeCommandMixin {
             player.field_2823.sendPacket(new PlayerAbilitiesS2CPacket(player.abilities));
         } else {
             instance.noClip = false;
+
             original.call(instance, gameMode);
+
+            ((IServerPlayerEntity) instance).setSpectatorMode(false);
         }
     }
 
