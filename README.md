@@ -23,6 +23,10 @@ Features:
 - [x] Ctrl+Q (drops the whole held item stack)
 - [x] Modern air logic 🍃
 - [x] Modern void damage 👁️‍🗨️
+- [ ] Spectator: 👀
+  - [ ] Abilities
+  - [ ] Invisibility
+  - [ ] Right-click portal entering
 
 Commands:
 - [x] /tellraw
