@@ -12,7 +12,13 @@ import net.minecraft.world.GameMode;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
+import org.spongepowered.asm.mixin.injection.Redirect;
 import pl.olafcio.renewed.mixininterface.IServerPlayerEntity;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Collectors;
 
 @Mixin(GameModeCommand.class)
 public class GameModeCommandMixin {
@@ -81,5 +87,12 @@ public class GameModeCommandMixin {
         }
 
         return val;
+    }
+
+    @Redirect(at = @At(value = "INVOKE", target = "Lnet/minecraft/server/command/GameModeCommand;method_2894([Ljava/lang/String;[Ljava/lang/String;)Ljava/util/List;", ordinal = 0), method = "method_3276")
+    public List tabcomplete__gamemodeNames(String[] ref, String[] strings) {
+        ArrayList<String> values = Arrays.stream(strings).collect(Collectors.toCollection(ArrayList::new));
+        values.add("spectator");
+        return GameModeCommand.method_2894(ref, values.toArray(new String[0]));
     }
 }
