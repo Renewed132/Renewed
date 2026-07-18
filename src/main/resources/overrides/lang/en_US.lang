@@ -108,3 +108,5 @@ tile.concrete_powder.orange.name=Orange Concrete Powder
 tile.concrete_powder.white.name=Concrete Powder
 
 tile.magma.name=Magma
+
+gameMode.spectator=Spectator Mode
