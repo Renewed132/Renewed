@@ -21,6 +21,7 @@
     "SandBlockMixin",
     "ServerPacketListenerMixin",
     "ServerPlayerEntityMixin",
+    "ServerPlayerInteractionManagerMixin",
     "SpawnEggItemMixin",
     "accessors.IBlock",
     "commands.CommandMixin",
@@ -47,9 +48,9 @@
   "client": [
     "AchievementsScreenMixin",
     "BlockRendererMixin",
-    "ClientPlayNetworkHandlerMixin",
     "ClientPlayerEntityMixin",
     "ClientPlayerInteractionManagerMixin",
+    "ClientPlayNetworkHandlerMixin",
     "ControllablePlayerEntityMixin",
     "FolderTexturePackMixin",
     "GameOptionsMixin",
