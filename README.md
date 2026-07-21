@@ -1,5 +1,5 @@
 # 📰 Renewed
-Brings new features into Minecraft 1.3.2.<br/>
+Brings new features (and bugfixes!) into Minecraft 1.3.2.<br/>
 For the usage, [click here](#-usage).
 
 ## 🪶 Features
