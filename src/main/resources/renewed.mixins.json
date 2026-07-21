@@ -55,6 +55,7 @@
     "FolderTexturePackMixin",
     "GameOptionsMixin",
     "GameRendererMixin",
+    "HandledScreenMixin",
     "HeldItemRendererMixin",
     "InGameHudMixin",
     "InputMixin",
