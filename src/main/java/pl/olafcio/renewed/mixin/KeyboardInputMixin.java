@@ -26,11 +26,11 @@ public abstract class KeyboardInputMixin implements IInput {
 
     @Inject(at = @At("TAIL"), method = "tick")
     public void tickTAIL(CallbackInfo ci) {
-        if (((IGameOptions) this.options).sprintKey().pressed && (
-                Minecraft.getMinecraft().playerEntity.getHungerManager().getFoodLevel() > 3*2 ||
-                Minecraft.getMinecraft().playerEntity.abilities.creativeMode
-        ))
-            setSprinting(!inPlace());
+        if (((IGameOptions) this.options).sprintKey().pressed)
+            setSprinting((
+                    Minecraft.getMinecraft().playerEntity.getHungerManager().getFoodLevel() > 3*2 ||
+                    Minecraft.getMinecraft().playerEntity.abilities.creativeMode
+            ) && !inPlace());
         else if (inPlace())
             setSprinting(false);
 
