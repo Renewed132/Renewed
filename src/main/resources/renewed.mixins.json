@@ -47,6 +47,7 @@
   ],
   "client": [
     "AchievementsScreenMixin",
+    "AddServerScreenMixin",
     "BlockRendererMixin",
     "ClientPlayerEntityMixin",
     "ClientPlayerInteractionManagerMixin",
@@ -62,6 +63,7 @@
     "ItemRendererMixin",
     "KeyboardInputMixin",
     "MinecraftMixin",
+    "MultiplayerScreenMixin",
     "NormalizeLogging",
     "ParticleManagerMixin",
     "ParticleMixin",
