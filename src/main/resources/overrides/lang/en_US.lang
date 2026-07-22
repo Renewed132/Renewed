@@ -110,3 +110,5 @@ tile.concrete_powder.white.name=Concrete Powder
 tile.magma.name=Magma
 
 gameMode.spectator=Spectator Mode
+
+tile.flower.name=Dandelion
