@@ -78,4 +78,17 @@ public class InGameHudMixin {
     public boolean render__shouldSkip(ClientPlayerInteractionManager instance, Operation<Boolean> original) {
         return original.call(instance) || ((IClientPlayerInteractionManager) instance).isSpectatorMode();
     }
+
+    @WrapOperation(
+            at = @At(
+                    value = "INVOKE",
+                    target = "Lnet/minecraft/client/gui/hud/InGameHud;drawTexture(IIIIII)V",
+                    ordinal = 2
+            ),
+            method = "render"
+    )
+    public void render__crosshair(InGameHud instance, int a, int b, int c, int d, int e, int f, Operation<Void> original) {
+        if (mc.options.perspective == 0)
+            original.call(instance, a, b, c, d, e, f);
+    }
 }
